@@ -23,6 +23,8 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
+@Getter
+@Setter
 public class Event extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -61,5 +63,5 @@ public class Event extends BaseEntity {
 
     @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @Builder.Default
-    private Set<EventImage> eventsImage = new HashSet<>();
+    private Set<EventImage> listImage = new HashSet<>();
 }
