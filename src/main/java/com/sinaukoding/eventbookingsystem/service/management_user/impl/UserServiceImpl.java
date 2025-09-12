@@ -1,13 +1,13 @@
 package com.sinaukoding.eventbookingsystem.service.management_user.impl;
 
 import com.sinaukoding.eventbookingsystem.builder.CustomBuilder;
-import com.sinaukoding.eventbookingsystem.entity.User;
-import com.sinaukoding.eventbookingsystem.mapper.UserMapper;
+import com.sinaukoding.eventbookingsystem.entity.management_user.User;
+import com.sinaukoding.eventbookingsystem.mapper.management_user.UserMapper;
 import com.sinaukoding.eventbookingsystem.model.app.AppPage;
 import com.sinaukoding.eventbookingsystem.model.app.SimpleMap;
 import com.sinaukoding.eventbookingsystem.model.filter.UserFilterRecord;
 import com.sinaukoding.eventbookingsystem.model.request.UserRequestRecord;
-import com.sinaukoding.eventbookingsystem.repository.UserRepository;
+import com.sinaukoding.eventbookingsystem.repository.management_user.UserRepository;
 import com.sinaukoding.eventbookingsystem.service.management_user.UserService;
 import lombok.RequiredArgsConstructor;
 import com.sinaukoding.eventbookingsystem.util.FilterUtil;
@@ -24,31 +24,9 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
 
-    private void validateMandatory(UserRequestRecord request) {
-        if (request.name() == null || request.name().isEmpty()) {
-            throw new RuntimeException("Name cannot be empty");
-        }
-        if (request.email() == null || request.email().isEmpty()) {
-            throw new RuntimeException("Email cannot be empty");
-        }
-        if (request.phone() == null || request.phone().isEmpty()) {
-            throw new RuntimeException("Phone cannot be empty");
-        }
-        if (request.password() == null || request.password().isEmpty()) {
-            throw new RuntimeException("Password cannot be empty");
-        }
-        if (request.status() == null) {
-            throw new RuntimeException("Status cannot be empty");
-        }
-        if (request.role() == null) {
-            throw new RuntimeException("Role cannot be empty");
-        }
-    }
-
     @Override
     public void add(UserRequestRecord request) {
         validateMandatory(request);
-
         if (userRepository.existsByEmail(request.email().toLowerCase())) {
             throw new RuntimeException("Email ["+request.email()+"] has been used");
         }
@@ -108,5 +86,26 @@ public class UserServiceImpl implements UserService {
         data.put("role", user.getRole().getLabel());
         data.put("status", user.getStatus().getLabel());
         return data;
+    }
+
+    private void validateMandatory(UserRequestRecord request) {
+        if (request.name() == null || request.name().isEmpty()) {
+            throw new RuntimeException("Name cannot be empty");
+        }
+        if (request.email() == null || request.email().isEmpty()) {
+            throw new RuntimeException("Email cannot be empty");
+        }
+        if (request.phone() == null || request.phone().isEmpty()) {
+            throw new RuntimeException("Phone cannot be empty");
+        }
+        if (request.password() == null || request.password().isEmpty()) {
+            throw new RuntimeException("Password cannot be empty");
+        }
+        if (request.status() == null) {
+            throw new RuntimeException("Status cannot be empty");
+        }
+        if (request.role() == null) {
+            throw new RuntimeException("Role cannot be empty");
+        }
     }
 }

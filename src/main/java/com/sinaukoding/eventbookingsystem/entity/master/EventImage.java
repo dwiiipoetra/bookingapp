@@ -1,5 +1,6 @@
-package com.sinaukoding.eventbookingsystem.entity;
+package com.sinaukoding.eventbookingsystem.entity.master;
 
+import com.sinaukoding.eventbookingsystem.entity.app.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,7 +19,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @SuperBuilder
 @Data
-public class EventImage extends BaseEntity{
+public class EventImage extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;

@@ -1,6 +1,6 @@
-package com.sinaukoding.eventbookingsystem.mapper;
+package com.sinaukoding.eventbookingsystem.mapper.management_user;
 
-import com.sinaukoding.eventbookingsystem.entity.User;
+import com.sinaukoding.eventbookingsystem.entity.management_user.User;
 import com.sinaukoding.eventbookingsystem.model.request.UserRequestRecord;
 import org.springframework.stereotype.Component;
 

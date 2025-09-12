@@ -1,4 +1,4 @@
-package com.sinaukoding.eventbookingsystem.controller;
+package com.sinaukoding.eventbookingsystem.controller.management_user;
 
 import com.sinaukoding.eventbookingsystem.model.filter.UserFilterRecord;
 import com.sinaukoding.eventbookingsystem.model.request.UserRequestRecord;
@@ -22,7 +22,7 @@ class UserController {
         return BaseResponse.ok("Data added successfully", null);
     }
 
-    @PutMapping("edit")
+    @PostMapping("edit")
     public BaseResponse<?> edit(@RequestBody UserRequestRecord request) {
         userService.edit(request);
         return BaseResponse.ok("Data updated successfully", null);

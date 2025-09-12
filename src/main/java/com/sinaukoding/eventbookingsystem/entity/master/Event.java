@@ -1,5 +1,7 @@
-package com.sinaukoding.eventbookingsystem.entity;
+package com.sinaukoding.eventbookingsystem.entity.master;
 
+import com.sinaukoding.eventbookingsystem.entity.app.BaseEntity;
+import com.sinaukoding.eventbookingsystem.entity.management_user.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Size;

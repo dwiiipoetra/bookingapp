@@ -1,4 +1,6 @@
-package com.sinaukoding.eventbookingsystem.entity;
+package com.sinaukoding.eventbookingsystem.entity.management_user;
+import com.sinaukoding.eventbookingsystem.entity.master.Event;
+import com.sinaukoding.eventbookingsystem.entity.app.BaseEntity;
 import com.sinaukoding.eventbookingsystem.model.enums.Role;
 import com.sinaukoding.eventbookingsystem.model.enums.Status;
 import jakarta.persistence.*;
@@ -19,6 +21,7 @@ import java.util.HashSet;
 @Entity
 @Table(name = "m_user", indexes = {
         @Index(name = "idx_user_created_date", columnList = "createdDate"),
+        @Index(name = "idx_user_modified_date", columnList = "modifiedDate"),
         @Index(name = "idx_user_name", columnList = "name"),
         @Index(name = "idx_user_email", columnList = "email"),
 })

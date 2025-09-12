@@ -1,4 +1,4 @@
-package com.sinaukoding.eventbookingsystem.entity;
+package com.sinaukoding.eventbookingsystem.entity.app;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;
