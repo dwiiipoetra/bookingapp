@@ -13,6 +13,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 @EqualsAndHashCode(callSuper = true)
+@Getter
+@Setter
+@SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "m_event", indexes = {
         @Index(name = "idx_event_created_date", columnList = "createdDate"),
@@ -20,11 +25,6 @@ import java.util.Set;
         @Index(name = "idx_event_description", columnList = "description"),
         @Index(name = "idx_event_location", columnList = "location"),
 })
-@NoArgsConstructor
-@AllArgsConstructor
-@SuperBuilder
-@Getter
-@Setter
 public class Event extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

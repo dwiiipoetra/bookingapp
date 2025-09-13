@@ -1173,3 +1173,20 @@ java.lang.RuntimeException: User data not found
 	at java.base/java.lang.Thread.run(Thread.java:1583)
 2025-09-13_01:17:43.333 [http-nio-8080-exec-7] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public com.sinaukoding.eventbookingsystem.model.response.BaseResponse<?> com.sinaukoding.eventbookingsystem.controller.management_user.UserController.findAll(org.springframework.data.domain.Pageable,com.sinaukoding.eventbookingsystem.model.filter.UserFilterRecord)]
 2025-09-13_01:17:50.943 [http-nio-8080-exec-10] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public com.sinaukoding.eventbookingsystem.model.response.BaseResponse<?> com.sinaukoding.eventbookingsystem.controller.management_user.UserController.findAll(org.springframework.data.domain.Pageable,com.sinaukoding.eventbookingsystem.model.filter.UserFilterRecord)]
+2025-09-13_03:36:08.966 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-09-13_03:36:12.684 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-09-13_03:36:13.632 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 0e284ff4-4c1f-4178-be08-c2ccbf2bcb46
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-09-13_17:28:23.659 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-09-13_17:28:25.164 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-09-13_17:28:25.588 [main] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: b48431c2-9972-4376-bd2a-5d336780a987
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-09-13_18:59:28.572 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=37m2s291ms18µs).

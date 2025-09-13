@@ -18,3 +18,11 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   profiles:
     active: staging
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+app:
+  upload-directory: bookingapp-uploads
+  folder-temp: ./bookingapp-temp/
