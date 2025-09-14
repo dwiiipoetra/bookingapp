@@ -15,5 +15,6 @@ public record EventRequestRecord(String id,
                                  @NotNull(message = "End Time cannot be empty") LocalDateTime endTime,
                                  @NotNull(message = "Location cannot be empty") Integer capacity,
                                  @NotNull(message = "Location cannot be empty") Double price,
+                                 @NotBlank(message = "User ID cannot be empty") String userId,
                                  @NotEmpty(message = "Image cannot be empty") Set<String> listImage
 ) {}

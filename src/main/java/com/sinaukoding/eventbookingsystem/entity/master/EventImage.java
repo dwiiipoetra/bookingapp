@@ -2,13 +2,11 @@ package com.sinaukoding.eventbookingsystem.entity.master;
 
 import com.sinaukoding.eventbookingsystem.entity.app.BaseEntity;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
+@ToString(onlyExplicitlyIncluded = true)
 @Entity
 @Table(name="m_event_image", indexes = {
         @Index(name = "idx_event_image_created_date", columnList = "createdDate"),
@@ -18,14 +16,17 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-@Data
+//@Data
 public class EventImage extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+    @EqualsAndHashCode.Include
+    @ToString.Include
     private String id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "event_id", nullable = false)
+    @ToString.Exclude
     private Event event;
 
     @Column(nullable = false)

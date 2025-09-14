@@ -15,7 +15,6 @@ import com.sinaukoding.eventbookingsystem.repository.master.EventRepository;
 import com.sinaukoding.eventbookingsystem.service.app.ValidatorService;
 import com.sinaukoding.eventbookingsystem.service.master.EventService;
 import com.sinaukoding.eventbookingsystem.util.FilterUtil;
-import com.sinaukoding.eventbookingsystem.service.master.EventService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -99,7 +98,7 @@ public class EventServiceImpl implements EventService {
             data.put("price", event.getPrice());
             data.put("createdDate", event.getCreatedDate());
             data.put("modifiedDate", event.getModifiedDate());
-            data.put("listImage", event.getListImage().stream().map(EventImage::getPath).collect(Collectors.toSet()));
+//            data.put("listImage", event.getListImage().stream().map(EventImage::getPath).collect(Collectors.toSet()));
             return data;
         }).toList();
 
@@ -119,7 +118,7 @@ public class EventServiceImpl implements EventService {
         data.put("price", event.getPrice());
         data.put("createdDate", event.getCreatedDate());
         data.put("modifiedDate", event.getModifiedDate());
-        data.put("listImage", event.getListImage().stream().map(EventImage::getPath).collect(Collectors.toSet()));
+//        data.put("listImage", event.getListImage().stream().map(EventImage::getPath).collect(Collectors.toSet()));
         return data;
     }
 

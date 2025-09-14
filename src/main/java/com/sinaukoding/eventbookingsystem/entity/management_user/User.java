@@ -13,8 +13,11 @@ import jakarta.validation.constraints.Size;
 import java.util.Set;
 import java.util.HashSet;
 
-@EqualsAndHashCode(callSuper = true)
-@Data
+@EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
+@ToString(onlyExplicitlyIncluded = true)
+//@Data
+@Getter
+@Setter
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -28,6 +31,8 @@ import java.util.HashSet;
 public class User extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+    @EqualsAndHashCode.Include
+    @ToString.Include
     private String id;
 
     @Size(max = 50, message = "Max character is 50")
@@ -61,6 +66,7 @@ public class User extends BaseEntity {
     private LocalDateTime expiredTokenAt;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @ToString.Exclude
     @Builder.Default
     private Set<Event> events = new HashSet<>();
 }

@@ -12,7 +12,8 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = false)
+@ToString(onlyExplicitlyIncluded = true)
 @Getter
 @Setter
 @SuperBuilder
@@ -28,6 +29,8 @@ import java.util.Set;
 public class Event extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+    @EqualsAndHashCode.Include
+    @ToString.Include
     private String id;
 
     @Size(max = 100, message = "Max character is 100")
@@ -59,9 +62,11 @@ public class Event extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
+    @ToString.Exclude
     private User user;
 
     @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @ToString.Exclude
     @Builder.Default
     private Set<EventImage> listImage = new HashSet<>();
 }
