@@ -4,6 +4,7 @@ import com.sinaukoding.eventbookingsystem.model.enums.Role;
 import com.sinaukoding.eventbookingsystem.model.enums.Status;
 
 public record UserRequestRecord(String id,
+                                String username,
                                 String name,
                                 String email,
                                 String phone,

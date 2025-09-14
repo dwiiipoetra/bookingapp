@@ -26,7 +26,8 @@ import java.util.HashSet;
 @Table(name = "m_user", indexes = {
         @Index(name = "idx_user_created_date", columnList = "createdDate"),
         @Index(name = "idx_user_modified_date", columnList = "modifiedDate"),
-        @Index(name = "idx_user_name", columnList = "name"),
+        @Index(name = "idx_user_name", columnList = "username"),
+        @Index(name = "idx_name", columnList = "name"),
         @Index(name = "idx_user_email", columnList = "email"),
 })
 public class User extends BaseEntity {
@@ -35,6 +36,10 @@ public class User extends BaseEntity {
     @EqualsAndHashCode.Include
     @ToString.Include
     private String id;
+
+    @Size(max = 100, message = "Max character is 100")
+    @Column(nullable = false, unique = true, length = 100)
+    private String username;
 
     @Size(max = 50, message = "Max character is 50")
     @Column(nullable = false, length = 50)

@@ -8,7 +8,8 @@ import org.springframework.stereotype.Component;
 public class UserMapper {
     public User requestToEntity(UserRequestRecord request) {
         return User.builder()
-            .name(request.name().toUpperCase())
+            .username(request.username().toUpperCase())
+            .name(request.name())
             .email(request.email().toLowerCase())
             .phone(request.phone().toLowerCase())
             .password(request.password())

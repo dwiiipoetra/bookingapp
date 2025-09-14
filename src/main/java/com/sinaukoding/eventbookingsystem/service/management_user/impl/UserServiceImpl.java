@@ -30,6 +30,9 @@ public class UserServiceImpl implements UserService {
         if (userRepository.existsByEmail(request.email().toLowerCase())) {
             throw new RuntimeException("Email ["+request.email()+"] has been used");
         }
+        if (userRepository.existsByUsername(request.username().toLowerCase())) {
+            throw new RuntimeException("Username [" + request.username() + "] has been used");
+        }
 
         var user = userMapper.requestToEntity(request);
         userRepository.save(user);
@@ -43,6 +46,9 @@ public class UserServiceImpl implements UserService {
 
         if (userRepository.existsByEmailAndIdNot(request.email().toLowerCase(), request.id())) {
             throw new RuntimeException("Email ["+request.email()+"] has been used");
+        }
+        if (userRepository.existsByUsernameAndIdNot(request.username().toLowerCase(), request.id())) {
+            throw new RuntimeException("Username [" + request.username() + "] has been used");
         }
 
         var user = userMapper.requestToEntity(request);

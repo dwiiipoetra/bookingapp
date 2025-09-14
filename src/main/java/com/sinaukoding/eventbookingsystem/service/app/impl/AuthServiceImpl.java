@@ -25,9 +25,9 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public SimpleMap login(LoginRequestRecord request) {
         validatorService.validator(request);
-        var user = userRepository.findByUsername(request.name().toLowerCase()).orElseThrow(() -> new RuntimeException("Wrong username or password"));
+        var user = userRepository.findByUsername(request.username().toLowerCase()).orElseThrow(() -> new RuntimeException("Wrong username or password"));
         if (!passwordEncoder.matches(request.password(), user.getPassword())) {
-            throw new RuntimeException("Username atau password salah");
+            throw new RuntimeException("Wrong username or password");
         }
         String token = jwtUtil.generateToken(user.getName());
         user.setToken(token);
