@@ -25,14 +25,14 @@ public class BookingController {
     private final BookingService bookingService;
 
     @PostMapping("save")
-    @PreAuthorize("hasRole('PARTICIPANT')")
+    @PreAuthorize("hasRole('PARTICIPANT') or hasRole('ADMIN')")
     public BaseResponse<?> save(@RequestBody BookingRequestRecord request) {
         bookingService.add(request);
         return BaseResponse.ok("Data added successfully", null);
     }
 
     @PostMapping("edit")
-    @PreAuthorize("hasRole('PARTICIPANT')")
+    @PreAuthorize("hasRole('PARTICIPANT') or hasRole('ADMIN')")
     public BaseResponse<?> edit(@RequestBody BookingRequestRecord request) {
         bookingService.edit(request);
         return BaseResponse.ok("Data updated successfully", null);

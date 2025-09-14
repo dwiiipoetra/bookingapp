@@ -25,14 +25,14 @@ public class EventController {
     private final EventService eventService;
 
     @PostMapping("save")
-    @PreAuthorize("hasRole('ORGANIZER')")
+    @PreAuthorize("hasRole('ORGANIZER') or hasRole('ADMIN')")
     public BaseResponse<?> save(@RequestBody EventRequestRecord request) {
         eventService.add(request);
         return BaseResponse.ok("Data added successfully", null);
     }
 
     @PostMapping("edit")
-    @PreAuthorize("hasRole('ORGANIZER')")
+    @PreAuthorize("hasRole('ORGANIZER') or hasRole('ADMIN')")
     public BaseResponse<?> edit(@RequestBody EventRequestRecord request) {
         eventService.edit(request);
         return BaseResponse.ok("Data updated successfully", null);
