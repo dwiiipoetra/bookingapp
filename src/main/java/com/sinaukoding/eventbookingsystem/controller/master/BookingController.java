@@ -1,7 +1,6 @@
 package com.sinaukoding.eventbookingsystem.controller.master;
 
 import com.sinaukoding.eventbookingsystem.model.filter.BookingFilterRecord;
-import com.sinaukoding.eventbookingsystem.model.filter.EventFilterRecord;
 import com.sinaukoding.eventbookingsystem.model.request.BookingRequestRecord;
 import com.sinaukoding.eventbookingsystem.model.response.BaseResponse;
 import com.sinaukoding.eventbookingsystem.service.master.BookingService;
@@ -14,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -25,14 +25,14 @@ public class BookingController {
     private final BookingService bookingService;
 
     @PostMapping("save")
-//    @PreAuthorize("hasRole('PENJUAL')")
+    @PreAuthorize("hasRole('PARTICIPANT')")
     public BaseResponse<?> save(@RequestBody BookingRequestRecord request) {
         bookingService.add(request);
         return BaseResponse.ok("Data added successfully", null);
     }
 
     @PostMapping("edit")
-//    @PreAuthorize("hasRole('PENJUAL')")
+    @PreAuthorize("hasRole('PARTICIPANT')")
     public BaseResponse<?> edit(@RequestBody BookingRequestRecord request) {
         bookingService.edit(request);
         return BaseResponse.ok("Data updated successfully", null);

@@ -13,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
-//import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -25,14 +25,14 @@ public class EventController {
     private final EventService eventService;
 
     @PostMapping("save")
-//    @PreAuthorize("hasRole('PENJUAL')")
+    @PreAuthorize("hasRole('ORGANIZER')")
     public BaseResponse<?> save(@RequestBody EventRequestRecord request) {
         eventService.add(request);
         return BaseResponse.ok("Data added successfully", null);
     }
 
     @PostMapping("edit")
-//    @PreAuthorize("hasRole('PENJUAL')")
+    @PreAuthorize("hasRole('ORGANIZER')")
     public BaseResponse<?> edit(@RequestBody EventRequestRecord request) {
         eventService.edit(request);
         return BaseResponse.ok("Data updated successfully", null);
