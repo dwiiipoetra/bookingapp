@@ -35,7 +35,7 @@ public class EventServiceImpl implements EventService {
 
     @Override
     public void add(EventRequestRecord request) {
-        try {
+//        try {
             log.trace("Go to the add event data menu");
             log.debug("Request data event: {}", request);
 
@@ -51,9 +51,9 @@ public class EventServiceImpl implements EventService {
 
             log.info("Event {} successfully added", request.title());
             log.trace("Add event data successfully and complete");
-        } catch (Exception e) {
-            log.error("Add event data failed: {}", e.getMessage());
-        }
+//        } catch (Exception e) {
+//            log.error("Add event data failed: {}", e.getMessage());
+//        }
     }
 
     @Override

@@ -1,4 +1,5 @@
 package com.sinaukoding.eventbookingsystem.entity.management_user;
+import com.sinaukoding.eventbookingsystem.entity.master.Booking;
 import com.sinaukoding.eventbookingsystem.entity.master.Event;
 import com.sinaukoding.eventbookingsystem.entity.app.BaseEntity;
 import com.sinaukoding.eventbookingsystem.model.enums.Role;
@@ -69,4 +70,9 @@ public class User extends BaseEntity {
     @ToString.Exclude
     @Builder.Default
     private Set<Event> events = new HashSet<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @ToString.Exclude
+    @Builder.Default
+    private Set<Booking> bookings = new HashSet<>();
 }

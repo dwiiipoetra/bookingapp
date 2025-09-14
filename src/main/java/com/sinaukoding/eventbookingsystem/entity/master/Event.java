@@ -69,4 +69,9 @@ public class Event extends BaseEntity {
     @ToString.Exclude
     @Builder.Default
     private Set<EventImage> listImage = new HashSet<>();
+
+    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @ToString.Exclude
+    @Builder.Default
+    private Set<Booking> bookings = new HashSet<>();
 }
