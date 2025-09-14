@@ -26,3 +26,16 @@ spring:
 app:
   upload-directory: bookingapp-uploads
   folder-temp: ./bookingapp-temp/
+
+logging:
+  level:
+    com.sinaukoding.eventbookingsystem: TRACE
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    defaultModelsExpandDepth: -1
+    docExpansion: none
+    tagsSorter: alpha
+    operationsSorter: alpha

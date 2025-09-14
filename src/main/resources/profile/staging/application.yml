@@ -26,3 +26,15 @@ spring:
 app:
   upload-directory: bookingapp-uploads
   folder-temp: ./bookingapp-temp/
+
+logging:
+  level:
+    com.sinaukoding.eventbookingsystem: INFO
+
+springdoc:
+  api-docs:
+    defaultModelsExpandDepth: -1
+    docExpansion: none
+    enabled: true
+    tagsSorter: alpha
+    operationsSorter: alpha
